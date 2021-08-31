@@ -1,5 +1,6 @@
 package com.exercises;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class E08_CharToCode
@@ -9,6 +10,17 @@ public class E08_CharToCode
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a character: ");
         char ch = input.nextLine().charAt(0);
-        System.out.printf("The Unicode code for %c is %d", ch, (int) ch);
+
+        System.out.println("Method 1: ");
+        int dec = (int) ch;
+        System.out.printf("Dec: %d\n", (int) ch);
+        System.out.printf("Hex: %X\n", (int) ch);
+
+        System.out.println();
+        System.out.println("Method 2: ");
+        System.out.println( "Hex: " + Integer
+                .toHexString(ch | 0x10000)
+                .substring(1)
+                .toUpperCase());
     }
 }
